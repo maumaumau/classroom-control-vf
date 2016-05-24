@@ -1,5 +1,5 @@
-class memchached {
-package { 'memchached':
+class memcached {
+package { 'memcached':
   ensure => present,
 }
 
