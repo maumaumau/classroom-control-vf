@@ -12,6 +12,6 @@ define users::managed_user (
   ensure => directory,
   owner => $title,
   group => $group,
-  chmod => '0700',
+  mode => '0700',
   }
 }
