@@ -42,7 +42,7 @@ file { '/etc/nginx/conf.d/default.conf':
 service { 'nginx':
   ensure    => running,
   enable    => true,
-  subscribe => [ File['/etc/nginx/nginx.conf'], File['/etc/nginx/conf.d/default.conf'] ],
+  subscribe => [ File['/etc/nginx/nginx.conf'], File['/etc/nginx/conf.d/default.conf'], File['/var/www/index.html] ],
  # only one?
  #subscribe => File['/etc/nginx/conf.d/default.conf'],
 }
