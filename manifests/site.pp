@@ -45,6 +45,7 @@ ini_setting { 'random ordering':
 node default {
 
 include memcached
+inlcude nginx
 #include users
 #include skeleton
 
