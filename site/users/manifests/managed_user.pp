@@ -2,7 +2,7 @@ define users::managed_user (
 ) {
   user { $title:
   ensure => present,
-}
+  }
   file { "/home/${title}":
   ensure => directory,
   owner => $title,
@@ -13,4 +13,5 @@ define users::managed_user (
   owner => $title,
   group => $group,
   chmod => '0700',
+  }
 }
