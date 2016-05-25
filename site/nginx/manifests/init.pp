@@ -1,8 +1,7 @@
 class nginx {
 
-package { 'nginx':
-  ensure => present,
-}
+$pkg = 'nginx'
+
 
 File {
   ensure  => file,
@@ -10,26 +9,30 @@ File {
   group   => 'root',
   mode    => '0664',
   }
+
+package { "$pkg":
+  ensure => present,
+}
   
 file { '/etc/nginx/nginx.conf':
   source  => 'puppet:///modules/nginx/nginx.conf',
-  require => Package['nginx'],
+  require => Package["$pkg"],
 }
 
 file { '/var/www':
   ensure  => directory,
   mode    => '0775',
-  require => Package['nginx'],
+  require => Package["$pkg"],
 }
 
 file { '/var/www/index.html':
   source  => 'puppet:///modules/nginx/index.html',
-  require => Package['nginx'],
+  require => Package["$pkg"],
 }
 
 file { '/etc/nginx/conf.d/default.conf':
   source  => 'puppet:///modules/nginx/default.conf',
-  require => Package['nginx'],
+  require => Package["$pkg"],
 }
 
 service { 'nginx':
