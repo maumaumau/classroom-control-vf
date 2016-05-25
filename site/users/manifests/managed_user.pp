@@ -10,7 +10,7 @@ define users::managed_user (
   }
   file { "/home/${title}/.ssh}":
   ensure => directory,
-  owner => $title
+  owner => $title,
   group => $group,
   chmod => '0700',
 }
