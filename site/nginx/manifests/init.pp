@@ -1,4 +1,4 @@
-class nginx {
+class nginx (
 $package = $nginx::params::package,
 $owner = $nginx::params::owner,
 $group = $nginx::params::group,
