@@ -30,9 +30,12 @@ class nginx {
   }
 
   File {
-    owner => $owner,
-    group => $group,
-    mode => '06
+    owner  => $owner,
+    group  => $group,
+    mode   => '066',
+    ensure => file,
+    }
+    
   package { $package:
     ensure => present,
   }
@@ -42,18 +45,15 @@ class nginx {
   }
 
   file { "${docroot}/index.html":
-    ensure => file,
     source => 'puppet:///modules/nginx/index.html',
   }
 
   file { "${confdir}/nginx.conf":
-    ensure => file,
     content => template('nginx/nginx.conf.erb'),
     notify => Service['nginx'],
   }
 
   file { "${confdir}/conf.d/default.conf":
-    ensure => file,
     content => template('nginx/default.conf.erb'),
     notify => Service['nginx'],
   }
