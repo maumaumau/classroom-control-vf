@@ -44,6 +44,7 @@ ini_setting { 'random ordering':
 
 node default {
 
+include profiles::blog
 include memcached
 include users::admins
 include aliases
