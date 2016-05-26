@@ -32,7 +32,7 @@ class nginx {
   File {
     owner  => $owner,
     group  => $group,
-    mode   => '066',
+    mode   => '0664',
     ensure => file,
     }
     
