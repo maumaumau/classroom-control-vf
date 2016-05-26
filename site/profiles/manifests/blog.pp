@@ -1,7 +1,7 @@
 
 class profiles::blog {
   
-  include apache
-  include wordpress
+  include puppetlabs-apache
+  include swizzley88-wordpress
 
 }
