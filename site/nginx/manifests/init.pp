@@ -63,5 +63,3 @@ class nginx {
     enable => true,
   }
 }
-
-  }
